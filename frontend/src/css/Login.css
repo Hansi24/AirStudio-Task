@@ -1,0 +1,84 @@
+body {
+  background: linear-gradient(135deg, #1B8AF1, #B58DED);
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  }
+  
+  .container {
+    width: 900px;
+    height: 500px;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
+      0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+      rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+      rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+      rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+      rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    transition: transform 0.5s ease; 
+  }
+  
+  h1 {
+    font-family: 'Segoe UI', bold;
+    font-size: 35px;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+  
+  form {
+    background: #3d133e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  input{
+    outline: none;
+    border: none;
+    width: 370px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #edf5f3;
+    margin: 5px 0;
+    font-size: 14px;
+  }
+
+  
+  button {
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    border: none;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-size: 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  p {
+    color: red;
+    font-size: 14px;
+  }
+  
