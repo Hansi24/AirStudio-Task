@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const PDF = require('../models/PDF'); 
+const { authenticateToken } = require('../middleware/auth');
 
 // Multer configuration for file uploads
 const storage = multer.diskStorage({
@@ -16,10 +17,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Route for uploading PDF files
-router.post('/upload', upload.single('pdf'), async (req, res) => {
+router.post('/upload', authenticateToken, upload.single('pdf'), async (req, res) => {
   try {
     const { filename, path } = req.file;
-    const newPDF = new PDF({ name: filename, path });
+    const userId = req.user.user;
+    const newPDF = new PDF({ name: filename, path, user: userId });
     await newPDF.save();
     res.status(201).json({ success: true, message: 'File uploaded successfully' });
   } catch (error) {
@@ -29,10 +31,12 @@ router.post('/upload', upload.single('pdf'), async (req, res) => {
 });
 
 // Route for fetching list of uploaded PDF files
-router.get('/files', async (req, res) => {
+router.get('/files', authenticateToken, async (req, res) => {
   try {
-    const files = await PDF.find();
-    res.status(200).json({ success: true, files });
+    const userId = req.user.user;
+    console.log(userId)
+    const files = await PDF.find({user: userId});
+    res.status(200).json({ success: true, files:files });
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ success: false, error: 'Error fetching files' });

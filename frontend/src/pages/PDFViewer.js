@@ -9,7 +9,7 @@ const PDFViewer = () => {
 
     return (
         <div className="pdf-viewer">
-           
+           {pdfUrl}
         </div>
     );
 };

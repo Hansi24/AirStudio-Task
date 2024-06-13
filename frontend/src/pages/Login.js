@@ -22,7 +22,8 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post('http://localhost:5000/api/auth/login', formData);
-      console.log('Response:', res); 
+      console.log('Response:', res.data.token); 
+      localStorage.setItem("token", res.data.token)
       setMessage(res.data.msg); 
       navigate('/home'); 
     } catch (err) {

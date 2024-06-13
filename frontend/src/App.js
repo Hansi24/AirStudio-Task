@@ -14,7 +14,7 @@ function App() {
           <Route exact path="/" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/home" element={<Home />} />
-          <Route path="/view-pdf" element={<PDFViewer />} />
+          <Route path="/view-pdf/:id" element={<PDFViewer />} />
         </Routes>
       </div>
     </Router>

@@ -1,12 +1,10 @@
 const express = require('express');
-const router = express.Router();
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-
+const router = express.Router();
+const { hashPassword, generateAccessToken, authenticateToken } = require('../middleware/auth');
 const User = require('../models/User');
-const secretKey = 'your_secret_key';
 
-// Register
+// Register Route
 router.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -17,25 +15,24 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ msg: 'User already exists' });
     }
 
+    const hashPwd = await hashPassword(password);
+
     user = new User({
       username,
       email,
-      password
+      password: hashPwd
     });
-
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(password, salt);
 
     await user.save();
 
-    res.json({ msg: 'User registered successfully' });
+    res.status(201).json({ msg: 'User registered successfully' });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
 
-// Login
+// Login Route
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -49,24 +46,23 @@ router.post('/login', async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
-      return res.status(400).json({ msg: 'Invalid credentials' });
+      return res.status(400).json({ msg: 'Invalid password' });
     }
 
-    const payload = {
+    const validData = {
       user: {
-        id: user.id
+        _id: user._id,
+        username: user.username
       }
     };
 
-    jwt.sign(payload, secretKey, { expiresIn: '1h' }, (err, token) => {
-      if (err) throw err;
-      res.json({ token });
-    });
+    const userToken = generateAccessToken(validData);
+    res.json({ token: userToken });
+
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
-
 
 module.exports = router;
