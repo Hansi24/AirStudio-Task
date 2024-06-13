@@ -54,7 +54,8 @@ const Register = () => {
 
   return (
     <div className="container">
-      <h1> Register </h1> {message && <p> {message} </p>}{" "}
+      <h1> Sign Up</h1> {message && <p> {message} </p>}{" "}
+      <h4>Create Your account</h4>
       <form onSubmit={onSubmit}>
         <div>
           <label> Username </label>{" "}

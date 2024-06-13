@@ -19,19 +19,7 @@ app.use(cors());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/pdf', require('./routes/pdfRoutes'));
-app.get('/get-pdf/:id', (req, res) => {
-    const pdfId = req.params.id;
-    const pdfPath = path.join(__dirname, 'pdfs', `${pdfId}.pdf`);
 
-    res.sendFile(pdfPath, (err) => {
-        if (err) {
-            console.error(`Error sending file: ${err}`);
-            res.status(err.status).end();
-        } else {
-            console.log(`Sent: ${pdfPath}`);
-        }
-    });
-});
 
 // Error handling middleware
 app.use((err, req, res, next) => {

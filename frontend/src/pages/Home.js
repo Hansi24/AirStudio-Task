@@ -23,13 +23,11 @@ const Home = () => {
           throw new Error('No token found');
         }
     
-        // Set up headers with the authorization token
         const headers = {
           Authorization: token
         };
     
-        // Make the GET request to retrieve PDF files
-        const res = await axios.get('http://localhost:5000/api/pdf/files', { headers });
+    const res = await axios.get('http://localhost:5000/api/pdf/files', { headers });
         console.log("pdf files list", res.data.files)
         setPdfFiles(res.data.files);
       } catch (err) {
@@ -44,8 +42,6 @@ const Home = () => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("pdf", event.target.elements.pdf.files[0]);
-
-    try {
       const token = localStorage.getItem('token');
       const uploadRes = await axios.post(
         "http://localhost:5000/api/pdf/upload",
@@ -57,59 +53,37 @@ const Home = () => {
           },
         }
       );
-      console.log(uploadRes)
+      console.log(uploadRes.data.success);
       if (uploadRes.data.success) {
         setSuccessMessage("File uploaded successfully!");
         setErrorMessage("");
 
-        const res = await axios.get("http://localhost:5000/api/pdf/files");
+        const headers = {
+          Authorization: token
+        };
+    
+        const res = await axios.get("http://localhost:5000/api/pdf/files", {headers});
         setPdfFiles(res.data.files);
       } else {
         setSuccessMessage("");
         setErrorMessage("File upload failed.");
       }
-    } catch (err) {
-      console.error("File upload error:", err);
-      setSuccessMessage("");
-      setErrorMessage("File upload failed.");
-    }
   };
 
   const handleViewPdf = (pdfUrl) => {
     console.log("pdf url",pdfUrl)
-    // const x = `localhost:5000/${pdfUrl}`
-    // setCurrentPdfUrl(x);
     const externalUrl = `http://localhost:5000/${pdfUrl}`;
     window.location.href = externalUrl;
   };
 
-  // const handleDeletePdf = async (pdfId) => {
-  //   try {
-  //   console.log("inside delete try")
-  //     const deleteRes = await axios.post(
-  //       `http://localhost:5000/api/pdf/delete/${pdfId}`
-  //     );
-  //     console.log("deleteRes.data",deleteRes.data)
-  //     if (deleteRes.data.success) {
-  //       console.log("inside delete if")
-  //       setSuccessMessage("File deleted successfully!");
-  //       setErrorMessage("");
-  //       const updatedFiles = pdfFiles.filter((file) => file._id !== pdfId);
-  //       setPdfFiles(updatedFiles);
-  //     } else {
-  //       console.log("inside else in delete route")
-  //       setSuccessMessage("");
-  //       setErrorMessage("Failed to delete file.");
-  //     }
-  //   } catch (err) {
-  //     console.error("File deletion error: IN CATCH", err);
-  //     setSuccessMessage("");
-  //     setErrorMessage("Failed to delete file.");
-  //   }
-  // };
   const handleDeletePDF = async (pdfId) => {
     try {
-      const response = await axios.post(`http://localhost:5000/api/pdf/delete/${pdfId}`);
+      const token = localStorage.getItem('token');
+      const headers = {
+        Authorization: token
+      };
+      console.log(headers);
+      const response = await axios.post(`http://localhost:5000/api/pdf/delete/${pdfId}`,pdfId, { headers });
       console.log("response.data",response.data)
       if (response.data.success) {
         console.log('File deleted successfully');
@@ -133,7 +107,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1>Upload Your Document...</h1>
+      <h1>Upload Your Documents...</h1>
       <div className="upload-form">
         <form onSubmit={handleFileUpload}>
           <input type="file" name="pdf" accept="application/pdf" required />
@@ -144,6 +118,9 @@ const Home = () => {
         )}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
+      {/* <div className="pdg_img">
+      <img href="../assets/img1.jpg" alt="pdf icon"></img>
+      </div> */}
       <div className="uploaded-pdfs">
         <h2>Uploaded Files</h2>
         <div className="pdf-list">

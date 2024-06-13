@@ -1,107 +1,144 @@
-/* Home.css */
-
 .home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 100px;
-    position: relative;
-    padding: 0 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  margin-top: 100px;
+  border: 1px solid #ece8ec;
+  border-radius: 50px;
+  position: relative;
+  padding: 0 20px;
+  color: #eee6ee; 
+}
+
+.home-container h1{
+  color: #f0e2e2;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 300%;
+}
+
+
+.upload-form {
+  width: 450px; 
+  height: 220px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 8px dotted #ffebfd; 
+  border-radius: 10px;
+  box-sizing: border-box; 
   
-  .upload-form {
-    width: 80%;
-    max-width: 600px; /* Limit upload form width for better layout on smaller screens */
-    height: 200px;
-    margin-bottom: 30px;
-    padding: 20px;
-    border: 6px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
-  }
-  
-  .upload-form form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .uploaded-pdfs {
-    width: 100%;
-    max-width: 800px; /* Limit uploaded PDFs container width for better layout on smaller screens */
-    padding: 20px;
-    border: 6px solid #ccc;
-    border-radius: 6px;
-  }
-  
-  .uploaded-pdfs h2 {
-    margin-bottom: 10px;
-  }
-  
-  .pdf-list {
-    margin-top: 10px;
-  }
-  
-  .pdf-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc; /* Add border bottom to separate items */
-  }
-  
-  .pdf-item:last-child {
-    border-bottom: none; /* Remove bottom border for the last item */
-  }
-  
-  .pdf-buttons {
-    display: flex;
-    align-items: center;
-  }
-  
-  .view-pdf-button,
-  .delete-pdf-button {
-    padding: 8px 12px;
-    font-size: 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .view-pdf-button {
-    background-color: #2196f3;
-    color: white;
-    border: none;
-  }
-  
-  .view-pdf-button:hover {
-    background-color: #17344d;
-  }
-  
-  .delete-pdf-button {
-    background-color: #bf372e;
-    color: white;
-    border: none;
-    margin-left: 10px;
-  }
-  
-  .delete-pdf-button:hover {
-    background-color: #d32f2f;
-  }
-  
-  .logout-button {
-    margin-top: 20px; /* Add margin to separate logout button */
-    margin-bottom: 10px;
-    padding: 8px 12px;
-    background-color: #36043d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .logout-button:hover {
-    background-color: #d32f2f;
-  }
-  
+  color: #310336; 
+}
+
+
+.upload-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.upload-form input[type="file"] {
+  margin-bottom: 40px;
+  padding: 8px;
+  border: 8px solid #ebcde6;
+  border-radius: 4px;
+  background-color: hsl(300, 83%, 9%);
+  color: #f5f1f6; 
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.upload-form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #581273;
+  color: #ffffff; 
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.uploaded-pdfs {
+  width: 100%;
+  max-width: 800px; 
+  padding: 20px;
+  border: 6px dotted #ffebfd;
+  border-radius: 6px;
+  color: #ece1ea;
+  font-weight: lighter; 
+}
+
+.uploaded-pdfs h2 {
+  margin-bottom: 10px;
+}
+
+.pdf-list {
+  margin-top: 10px;
+}
+
+.pdf-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #c982bd; 
+  color: #f7c4ef; 
+}
+
+.pdf-item:last-child {
+  border-bottom: none;
+}
+
+.pdf-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.view-pdf-button,
+.delete-pdf-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-pdf-button {
+  background-color: #7570b5;
+  color: #130219; 
+  border: none;
+}
+
+.view-pdf-button:hover {
+  background-color: #ca9bcd;
+}
+
+.delete-pdf-button {
+  background-color: #834a84;
+  color: #1a0421; /* Set text color to white */
+  border: none;
+  margin-left: 10px;
+}
+
+.delete-pdf-button:hover {
+  background-color: #dd81e3;
+}
+
+.logout-button {
+  margin-top: 20px;
+  width: 20%;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background-color: #d6c7d8;
+  color: #1b0417;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold; 
+}
+
+.logout-button:hover {
+  background-color: #a803a8;
+}

@@ -7,10 +7,10 @@ const { authenticateToken } = require('../middleware/auth');
 // Multer configuration for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Directory where uploaded files will be stored
+    cb(null, 'uploads/'); 
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname); // Rename file to prevent overwriting
+    cb(null, Date.now() + '-' + file.originalname); 
   }
 });
 
@@ -34,7 +34,6 @@ router.post('/upload', authenticateToken, upload.single('pdf'), async (req, res)
 router.get('/files', authenticateToken, async (req, res) => {
   try {
     const userId = req.user.user;
-    console.log(userId)
     const files = await PDF.find({user: userId});
     res.status(200).json({ success: true, files:files });
   } catch (error) {
@@ -42,16 +41,18 @@ router.get('/files', authenticateToken, async (req, res) => {
     res.status(500).json({ success: false, error: 'Error fetching files' });
   }
 });
-router.delete('/:id', async (req, res) => {
+
+router.post('/delete/:id', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
-    const pdf = await PDF.findById(id);
+    const userId = req.user.user;
+    console.log(userId)
+    const deletedPDF = await PDF.findOneAndDelete({ _id: id, user: userId });
 
-    if (!pdf) {
+    if (!deletedPDF) {
       return res.status(404).json({ success: false, error: 'PDF not found' });
     }
 
-    await pdf.remove();
     res.status(200).json({ success: true, message: 'File deleted successfully' });
   } catch (error) {
     console.error(error.message);

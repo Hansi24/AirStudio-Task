@@ -1,84 +1,82 @@
-body {
-  background: linear-gradient(135deg, #1B8AF1, #B58DED);
-  height: 100vh;
-  width: 100%;
-  text-align: center;
-  }
-  
-  .container {
-    width: 900px;
-    height: 500px;
+.log-container {
     display: flex;
-    border-radius: 20px;
-    box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
-      0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
-    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-      rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-      rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
-      rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
-      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-      rgba(0, 0, 0, 0.09) 0px 32px 16px;
-    transition: transform 0.5s ease; 
-  }
-  
-  h1 {
-    font-family: 'Segoe UI', bold;
-    font-size: 35px;
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-  }
-  
-  form {
-    background: #3d133e;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(238, 210, 238, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(47, 7, 41, 0.1);
+    width: 500px;
+    height: 360px;
     max-width: 400px;
+    margin: 20px ;
   }
   
-  form div {
-    margin-bottom: 15px;
+  .log-container h1 {
+    font-size: 3em;
+    font-family: fantasy;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2d0433; 
+    text-shadow: 1px 1px 2px rgba(118, 16, 94, 0.1);
   }
   
-  label {
+  .log-container form {
+    width: 100%;
+  }
+  
+  .log-container label {
     display: block;
     margin-bottom: 5px;
-    color: #555;
+    color: #760c89;
   }
   
-  input{
-    outline: none;
-    border: none;
-    width: 370px;
-    padding: 15px;
-    border-radius: 10px;
-    background-color: #edf5f3;
-    margin: 5px 0;
-    font-size: 14px;
-  }
-
-  
-  button {
+  .log-container input[type="email"],
+  .log-container input[type="password"] {
     width: 100%;
+    padding: 10px;
+    border: 2px solid #680b69;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .log-container input[type="email"]:focus,
+  .log-container input[type="password"]:focus {
+    border-color: #3a0744;
     outline: none;
+  }
+  
+  .log-container button {
+    width: 100%;
     padding: 10px;
     border: none;
-    background-color: rgb(0, 0, 0);
+    background-color: #450e47;
     color: white;
     font-size: 16px;
-    border-radius: 20px;
-    font-weight: bold;
+    border-radius: 4px;
     cursor: pointer;
-  
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
   }
   
-  button:hover {
-    background-color: #0056b3;
+  .log-container button:hover {
+    background-color: #5a2597; 
   }
   
-  p {
+  .log-container p {
     color: red;
     font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .log-container a {
+    color: #171eab;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .log-container a:hover {
+    text-decoration: underline;
   }
   
