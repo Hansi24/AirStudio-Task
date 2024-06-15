@@ -29,12 +29,12 @@ body {
   font-size: 300%;
   font-weight: 1000;
   font-family: fantasy;
-  color: #38095a; 
+  color: #38095a;
 }
 
 .container h4 {
   margin-top: 5px;
-  color: #834fa7; 
+  color: #834fa7;
 }
 
 h1 {
@@ -42,7 +42,7 @@ h1 {
   font-family: fantasy;
   text-align: center;
   margin-bottom: 30px;
-  color: #2d0433; 
+  color: #2d0433;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -82,7 +82,7 @@ button {
   width: 100%;
   padding: 10px;
   border: none;
-  background-color: #39085b; 
+  background-color: #39085b;
   color: white;
   font-size: 16px;
   border-radius: 4px;
@@ -91,7 +91,7 @@ button {
 }
 
 button:hover {
-  background-color: #26053e; 
+  background-color: #26053e;
 }
 
 p {
@@ -101,13 +101,17 @@ p {
 
 a {
 
-  color: #090320; 
-  text-decoration: underline; 
-  font-weight: bold; 
+  color: #090320;
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 
 a:hover {
   text-decoration: underline;
   color: #2a0348;
+}
+
+.mt-3 {
+  margin-top: 10px;
 }

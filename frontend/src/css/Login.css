@@ -1,82 +1,84 @@
 .log-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(238, 210, 238, 0.9);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(47, 7, 41, 0.1);
-    width: 500px;
-    height: 360px;
-    max-width: 400px;
-    margin: 20px ;
-  }
-  
-  .log-container h1 {
-    font-size: 3em;
-    font-family: fantasy;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #2d0433; 
-    text-shadow: 1px 1px 2px rgba(118, 16, 94, 0.1);
-  }
-  
-  .log-container form {
-    width: 100%;
-  }
-  
-  .log-container label {
-    display: block;
-    margin-bottom: 5px;
-    color: #760c89;
-  }
-  
-  .log-container input[type="email"],
-  .log-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #680b69;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .log-container input[type="email"]:focus,
-  .log-container input[type="password"]:focus {
-    border-color: #3a0744;
-    outline: none;
-  }
-  
-  .log-container button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: #450e47;
-    color: white;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-  }
-  
-  .log-container button:hover {
-    background-color: #5a2597; 
-  }
-  
-  .log-container p {
-    color: red;
-    font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(238, 210, 238, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(47, 7, 41, 0.1);
+  width: 500px;
+  height: 360px;
+  max-width: 400px;
+  margin: 20px ;
+}
+
+.log-container h1 {
+  font-size: 3em;
+  font-family: fantasy;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2d0433; 
+  text-shadow: 1px 1px 2px rgba(118, 16, 94, 0.1);
+}
+
+.log-container form {
+  width: 100%;
+}
+
+.log-container label {
+  display: block;
+  margin-bottom: 5px;
+  color: #760c89;
+}
+
+.log-container input[type="email"],
+.log-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #680b69;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.log-container input[type="email"]:focus,
+.log-container input[type="password"]:focus {
+  border-color: #3a0744;
+  outline: none;
+}
+
+.log-container button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #450e47;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.log-container button:hover {
+  background-color: #5a2597; 
+}
+
+.log-container p {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.log-container a {
+  color: #171eab;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.log-container a:hover {
+  text-decoration: underline;
+}
+  .mt-3 {
     margin-top: 10px;
   }
-  
-  .log-container a {
-    color: #171eab;
-    text-decoration: none;
-    margin-top: 10px;
-  }
-  
-  .log-container a:hover {
-    text-decoration: underline;
-  }
-  
